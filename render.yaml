@@ -1,0 +1,38 @@
+# Render Blueprint — web-service + tekin PostgreSQL avtomatik sozlanadi.
+# Render dashboard: New + -> Blueprint -> shu repo -> Apply
+
+databases:
+  - name: portfolio-db
+    plan: free
+    databaseName: portfolio
+    user: portfolio
+
+services:
+  - type: web
+    name: portfolio-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    autoDeploy: true          # har git push'da avtomatik qayta deploy
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: SECRET_KEY
+        generateValue: true   # Render xavfsiz kalit avtomatik yaratadi
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: COOKIE_SAMESITE
+        value: lax
+      - key: AUTO_SEED_ADMIN
+        value: "true"         # birinchi ishga tushganda adminni yaratadi
+      - key: ADMIN_USERNAME
+        sync: false           # qiymatni Render dashboard'da qo'lda kiritasiz
+      - key: ADMIN_PASSWORD
+        sync: false           # maxfiy — dashboard'da kiritasiz
+      - key: FRONTEND_ORIGINS
+        sync: false           # frontend manzilingiz
+      - key: DATABASE_URL
+        fromDatabase:
+          name: portfolio-db
+          property: connectionString
