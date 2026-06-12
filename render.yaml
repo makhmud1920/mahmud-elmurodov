@@ -1,11 +1,5 @@
-# Render Blueprint — web-service + tekin PostgreSQL avtomatik sozlanadi.
+# Render Blueprint — web-service (database Neon'da, alohida).
 # Render dashboard: New + -> Blueprint -> shu repo -> Apply
-
-databases:
-  - name: portfolio-db
-    plan: free
-    databaseName: portfolio
-    user: portfolio
 
 services:
   - type: web
@@ -33,6 +27,4 @@ services:
       - key: FRONTEND_ORIGINS
         sync: false           # frontend manzilingiz
       - key: DATABASE_URL
-        fromDatabase:
-          name: portfolio-db
-          property: connectionString
+        sync: false           # Neon'dan olingan connection string'ni dashboard'da kiritasiz
