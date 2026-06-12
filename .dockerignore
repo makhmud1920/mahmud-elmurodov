@@ -1,0 +1,16 @@
+# Maxfiy va keraksiz fayllar konteynerga tushmasin
+.env
+*.db
+*.sqlite3
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.git/
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+README.md
