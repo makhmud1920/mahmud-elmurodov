@@ -65,6 +65,29 @@ body::before {
   pointer-events: none;
 }
 
+/* 3D robot hamroh — sayt pastida yuradi (kontent ustida, nav ostida) */
+.robot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32vh;
+  min-height: 230px;
+  z-index: 40;
+  pointer-events: none;
+}
+/* butun ekran bo'ylab uchadigan skaut-dron */
+.flybot {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+}
+/* kichik ekranlarda (telefon) o'chiramiz — unumdorlik uchun */
+@media (max-width: 760px) {
+  .robot, .flybot { display: none; }
+}
+
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 img { max-width: 100%; display: block; }
