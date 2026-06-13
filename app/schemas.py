@@ -32,6 +32,28 @@ class ProjectOut(ProjectBase):
     model_config = ConfigDict(from_attributes=True)  # SQLAlchemy obyektidan o'qish
 
 
+# ---------- POST (o'rganish mavzulari) ----------
+class PostBase(BaseModel):
+    title: str
+    content: str  # Markdown
+    tags: Optional[str] = None
+    is_published: bool = True
+
+
+class PostCreate(PostBase):
+    """Yangi mavzu qo'shish/tahrirlash uchun"""
+    pass
+
+
+class PostOut(PostBase):
+    id: int
+    slug: str
+    created_at: datetime
+    updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
 # ---------- MESSAGE (aloqa formasi) ----------
 class MessageCreate(BaseModel):
     name: str

@@ -1,0 +1,35 @@
+/* Login ekrani */
+.admin-login { max-width: 360px; margin: 40px auto; }
+.admin-login h1 { font-size: 24px; margin-bottom: 20px; }
+.admin-login form { display: flex; flex-direction: column; gap: 12px; }
+
+/* Boshqaruv */
+.admin__top {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;
+}
+.admin__top h1 { font-size: 24px; }
+
+.admin-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+.admin-form textarea { font-family: var(--mono); font-size: 14px; }
+.admin-check {
+  display: flex; align-items: center; gap: 8px; color: var(--dim); font-size: 14px;
+}
+.admin-check input { width: auto; }
+.admin-form__actions { display: flex; align-items: center; gap: 14px; }
+.admin-msg { color: var(--dim); font-size: 14px; }
+
+.admin__listtitle {
+  font-size: 16px; color: var(--dim); font-weight: 600;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 8px;
+}
+.admin-list { list-style: none; }
+.admin-list li {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; border-bottom: 1px solid var(--border); gap: 12px;
+}
+.admin-list__slug { color: var(--dim); font-size: 13px; font-family: var(--mono); }
+.admin-list__actions { display: flex; gap: 6px; flex-shrink: 0; }
+.draft-badge {
+  font-size: 11px; color: #b45309; background: #fef3c7;
+  padding: 2px 8px; border-radius: 20px; margin-left: 8px; vertical-align: middle;
+}

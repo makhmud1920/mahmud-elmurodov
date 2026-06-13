@@ -13,7 +13,7 @@ from app.config import settings
 from app.database import Base, engine
 from app.models import models  # jadvallar ro'yxatdan o'tishi uchun
 from app.rate_limit import limiter
-from app.routers import auth, projects
+from app.routers import auth, posts, projects
 
 # Jadvallarni yaratish (agar mavjud bo'lmasa)
 Base.metadata.create_all(bind=engine)
@@ -71,6 +71,7 @@ app.add_middleware(
 
 # Routerlar
 app.include_router(auth.router)
+app.include_router(posts.router)
 app.include_router(projects.router)
 
 

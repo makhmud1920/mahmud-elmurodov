@@ -17,7 +17,7 @@ services:
       - key: COOKIE_SECURE
         value: "true"
       - key: COOKIE_SAMESITE
-        value: lax
+        value: none           # frontend va backend turli subdomen -> cross-site cookie
       - key: AUTO_SEED_ADMIN
         value: "true"         # birinchi ishga tushganda adminni yaratadi
       - key: ADMIN_USERNAME

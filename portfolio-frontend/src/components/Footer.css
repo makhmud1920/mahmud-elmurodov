@@ -1,5 +1,0 @@
-.footer { border-top: 1px solid var(--line); padding: 36px 0; position: relative; }
-.footer__inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.footer__logo { font-family: var(--font-display); font-weight: 600; font-size: 17px; }
-.footer__logo span { color: var(--accent); }
-.footer__copy { font-family: var(--font-mono); font-size: 13px; color: var(--text-dim); }

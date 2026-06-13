@@ -1,0 +1,14 @@
+.site-header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 62px;
+}
+.site-logo {
+  font-weight: 700; font-size: 18px; color: var(--text);
+}
+.site-logo:hover { text-decoration: none; color: var(--accent); }
+.site-nav { display: flex; gap: 22px; }
+.site-nav a {
+  color: var(--dim); font-size: 15px; font-weight: 500;
+}
+.site-nav a:hover { color: var(--accent); text-decoration: none; }
+.site-nav a.active { color: var(--accent); }

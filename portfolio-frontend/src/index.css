@@ -1,33 +1,19 @@
 /* ===========================================================
-   OBSERVATORIYA — sofistik qorong'i dizayn tizimi
-   Vazmin teal + indigo, butun sayt ortida doimiy 3D fon.
-   Barcha ranglar shu yerdan boshqariladi.
+   O'RGANISH DAFTARI — oddiy, toza, o'qishga qulay dizayn.
    =========================================================== */
 :root {
-  --bg:        #0b1020;     /* chuqur navy fon */
-  --bg-2:      #0d1426;
-  --surface:   #131b30;     /* panel (solid) */
-  --surface-2: #1a2440;     /* hover holatlar */
-  --glass:     rgba(19, 27, 48, 0.55);   /* shisha panellar */
-  --accent:    #3b82f6;     /* royal/elektr ko'k — asosiy urg'u */
-  --accent-2:  #60a5fa;     /* ochiq ko'k — ikkilamchi */
-  --accent-3:  #38bdf8;     /* osmon ko'k — uchinchi */
-  --text:      #e8edf6;     /* asosiy matn */
-  --text-dim:  #8893ab;     /* ikkilamchi matn */
-  --line:      rgba(255, 255, 255, 0.07);
+  --bg: #ffffff;
+  --panel: #f7f8fa;
+  --border: #e6e8ec;
+  --text: #1a1d24;
+  --dim: #5b6473;
+  --accent: #2563eb;
+  --accent-weak: #eef4ff;
+  --danger: #dc2626;
 
-  /* eski o'zgaruvchi nomlari bilan moslik (komponentlar ishlashi uchun) */
-  --void:      var(--bg);
-  --cyan:      var(--accent);
-  --magenta:   var(--accent-2);
-  --violet:    var(--accent-3);
-
-  /* Toza, oddiy tipografiya (coding/monospace emas) */
-  --font-display: 'Sora', sans-serif;       /* sarlavhalar */
-  --font-body: 'Inter', sans-serif;         /* asosiy matn */
-  --font-mono: 'Inter', sans-serif;         /* eski "mono" teglar endi toza Inter */
-
-  --maxw: 1140px;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --maxw: 760px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,133 +23,66 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-body);
-  line-height: 1.65;
-  overflow-x: hidden;
+  font-family: var(--font);
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
-/* Nebula — rang chuqurligi (3D zarrachalar ortida) */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(55% 45% at 18% 12%, rgba(59, 130, 246, 0.12), transparent 60%),
-    radial-gradient(50% 45% at 85% 85%, rgba(56, 189, 248, 0.10), transparent 60%),
-    radial-gradient(70% 60% at 50% 40%, transparent 40%, var(--bg) 92%);
-}
-
-/* Global 3D fon canvas — barcha kontent ortida */
-.bg3d {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* 3D robot hamroh — sayt pastida yuradi (kontent ustida, nav ostida) */
-.robot {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 32vh;
-  min-height: 230px;
-  z-index: 40;
-  pointer-events: none;
-}
-/* butun ekran bo'ylab uchadigan skaut-dron */
-.flybot {
-  position: fixed;
-  inset: 0;
-  z-index: 45;
-  pointer-events: none;
-}
-/* kichik ekranlarda (telefon) o'chiramiz — unumdorlik uchun */
-@media (max-width: 760px) {
-  .robot, .flybot { display: none; }
-}
-
-a { color: inherit; text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 button { font-family: inherit; cursor: pointer; }
-img { max-width: 100%; display: block; }
 
-/* ----- Umumiy konteyner ----- */
-.container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
-/* ----- Bo'lim sarlavhasi ----- */
-.section { padding: 120px 0; position: relative; }
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.eyebrow::before {
-  content: '';
-  width: 30px; height: 1px;
-  background: var(--accent);
-  opacity: 0.7;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 46px);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  margin-bottom: 52px;
-  color: var(--text);
-}
+main.container { min-height: 70vh; padding-top: 40px; padding-bottom: 80px; }
 
-/* ----- Tugmalar (vazmin, glow'siz) ----- */
+.muted { color: var(--dim); padding: 20px 0; }
+
+/* ----- Tugmalar ----- */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 26px;
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  color: #ffffff;
-  background: var(--accent);
-  border: none;
-  border-radius: 6px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  box-shadow: 0 6px 22px rgba(59, 130, 246, 0.22);
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 11px 22px;
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 8px;
+  font-size: 15px; font-weight: 500;
+  transition: background 0.15s;
 }
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.34);
+.btn:hover { background: #1d4ed8; text-decoration: none; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-text {
+  background: none; border: none; color: var(--accent);
+  font-size: 14px; padding: 6px 8px;
 }
-.btn-ghost {
-  background: transparent;
-  color: var(--accent-2);
-  border: 1px solid rgba(59, 130, 246, 0.45);
-  box-shadow: none;
-}
-.btn-ghost:hover {
-  background: rgba(59, 130, 246, 0.08);
-  box-shadow: none;
-  transform: translateY(-2px);
+.btn-text:hover { text-decoration: underline; }
+.btn-text.danger { color: var(--danger); }
+
+/* ----- Header ----- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px); z-index: 10;
 }
 
-/* ----- Reduced motion ----- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* ----- Footer ----- */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0; color: var(--dim); font-size: 14px;
 }
 
-/* ----- Klaviatura fokus ----- */
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+/* ----- Forma elementlari (umumiy) ----- */
+input, textarea {
+  width: 100%;
+  font-family: inherit; font-size: 15px;
+  padding: 12px 14px;
+  background: #fff; color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+}
+textarea { resize: vertical; line-height: 1.6; }
+input:focus, textarea:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-weak);
+}
+input::placeholder, textarea::placeholder { color: #9aa3b2; }
+
+.form-err { color: var(--danger); font-size: 14px; margin-top: 6px; }
