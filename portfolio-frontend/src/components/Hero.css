@@ -1,0 +1,63 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* matnni o'qishni osonlashtirish uchun lokal gradient (3D fon ustiga) */
+.hero__overlay {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(
+    ellipse at 22% 50%,
+    rgba(10, 14, 26, 0.55) 0%,
+    rgba(10, 14, 26, 0.15) 45%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+.hero__content { position: relative; z-index: 1; max-width: 720px; }
+.hero__tag {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+}
+.hero__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(52px, 9vw, 116px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  margin-bottom: 26px;
+  background: linear-gradient(180deg, #ffffff 0%, #aab6cc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero__sub {
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--text-dim);
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+.hero__cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero__scroll {
+  position: absolute; bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.hero__scroll span {
+  width: 1px; height: 40px;
+  background: linear-gradient(var(--accent), transparent);
+  animation: scrollPulse 2s infinite;
+}
+@keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }

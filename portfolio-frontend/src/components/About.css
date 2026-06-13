@@ -1,0 +1,44 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+}
+.about__bio p { color: var(--text-dim); margin-bottom: 18px; font-size: 17px; }
+.about__bio strong { color: var(--text); font-weight: 600; }
+.about__cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+
+/* Faktlar paneli (shisha karta) */
+.about__facts {
+  list-style: none;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 24px;
+}
+.fact {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.fact:last-child { border-bottom: none; }
+.fact__k {
+  color: var(--text-dim);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.fact__v {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .about__grid { grid-template-columns: 1fr; gap: 40px; }
+}

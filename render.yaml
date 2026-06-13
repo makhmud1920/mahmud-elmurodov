@@ -28,3 +28,19 @@ services:
         sync: false           # frontend manzilingiz
       - key: DATABASE_URL
         sync: false           # Neon'dan olingan connection string'ni dashboard'da kiritasiz
+
+  # --- Frontend (Vite statik sayt) ---
+  - type: web
+    name: portfolio-frontend
+    runtime: static
+    rootDir: portfolio-frontend       # monorepo: frontend shu papkada
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    autoDeploy: true
+    envVars:
+      - key: VITE_API_URL
+        value: https://portfolio-backend-j9dh.onrender.com
+    routes:
+      - type: rewrite                 # SPA — barcha yo'llar index.html'ga
+        source: /*
+        destination: /index.html

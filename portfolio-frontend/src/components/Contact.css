@@ -1,0 +1,38 @@
+.contact__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.contact__text { color: var(--text-dim); font-size: 17px; margin-bottom: 28px; max-width: 400px; }
+.contact__links { display: flex; flex-direction: column; gap: 12px; }
+.contact__links a {
+  font-family: var(--font-mono); font-size: 15px; color: var(--accent);
+  width: fit-content; transition: opacity 0.2s;
+}
+.contact__links a:hover { opacity: 0.7; }
+
+.contact__form { display: flex; flex-direction: column; gap: 14px; }
+.contact__form input,
+.contact__form textarea {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+.contact__form input:focus,
+.contact__form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+.contact__form input::placeholder,
+.contact__form textarea::placeholder { color: var(--text-dim); }
+.contact__form .btn { margin-top: 6px; justify-content: center; }
+.contact__form .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.contact__status { font-family: var(--font-mono); font-size: 14px; }
+.contact__status--ok { color: var(--accent); }
+.contact__status--err { color: var(--accent-2); }
+
+@media (max-width: 760px) { .contact__inner { grid-template-columns: 1fr; gap: 44px; } }
